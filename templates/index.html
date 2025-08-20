@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Beranda - Sistem Pelanggaran{% endblock %}
+
+{% block content %}
+    <div class="jumbotron bg-light p-5 rounded">
+        <h1 class="display-4">Sistem Pencatatan Pelanggaran</h1>
+        <p class="lead">Catat pelanggaran dan hitung poin secara otomatis!</p>
+        <hr class="my-4">
+        <p>Admin dapat mencatat pelanggaran, dan setiap bulan akan diumumkan total poin setiap pengguna.</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('tambah_pelanggaran') }}" role="button">Catat Pelanggaran</a>
+        <a class="btn btn-info btn-lg ms-2" href="{{ url_for('laporan_bulanan', tahun=2023, bulan=8) }}" role="button">Lihat Laporan Bulanan</a>
+    </div>
+    
+    <div class="card mt-4">
+        <div class="card-header bg-primary text-white">
+            Fitur Utama
+        </div>
+        <div class="card-body">
+            <ul>
+                <li>Pencatatan pelanggaran oleh admin</li>
+                <li>Perhitungan poin otomatis berdasarkan jenis pelanggaran</li>
+                <li>Laporan bulanan total poin per pengguna</li>
+                <li>Pengumuman bulanan</li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
