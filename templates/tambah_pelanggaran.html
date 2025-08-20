@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Catat Pelanggaran{% endblock %}
+
+{% block content %}
+    <h1>Catat Pelanggaran Baru</h1>
+    <form method="POST" class="mt-4">
+        <div class="mb-3">
+            <label for="user_id" class="form-label">Nama Pelanggar:</label>
+            <select name="user_id" id="user_id" class="form-select" required>
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.nama }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="jenis_pelanggaran_id" class="form-label">Jenis Pelanggaran:</label>
+            <select name="jenis_pelanggaran_id" id="jenis_pelanggaran_id" class="form-select" required>
+                {% for j in jenis_pelanggaran %}
+                    <option value="{{ j.id }}">{{ j.nama }} ({{ j.poin }} poin)</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label for="tanggal" class="form-label">Tanggal:</label>
+            <input type="date" name="tanggal" id="tanggal" class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="catatan" class="form-label">Catatan:</label>
+            <textarea name="catatan" id="catatan" class="form-control" rows="3"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-success">Simpan</button>
+        <a href="{{ url_for('index') }}" class="btn btn-secondary">Batal</a>
+    </form>
+{% endblock %}
